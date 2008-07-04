@@ -1,0 +1,30 @@
+DESCRIPTION="GIMP Toolkit (version 1.2)"
+HOMEPAGE="http://www.gtk.org/"
+SRC_URI="mirror://gnome/sources/${PN}/${PV_MAJ_MIN}/${P}.tar.gz"
+PATCH_URI="
+	mirror://portage/x11-libs/${PN}/files/${P}-m4.patch
+	mirror://portage/x11-libs/${PN}/files/${P}-automake.patch
+	mirror://portage/x11-libs/${PN}/files/${P}-cleanup.patch
+	mirror://gentoo/${P}-r8-gentoo.diff.bz2
+	mirror://portage/x11-libs/${PN}/files/${PN}-1.2-locale_fix.patch
+	mirror://portage/x11-libs/${PN}/files/${P}-as-needed.patch
+"
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS="setup devel"
+PKG_CONTENTS[0]="etc/gtk/ usr/bin/*.dll usr/share/doc/
+                 usr/share/locale/ usr/share/themes/"
+PKG_CONTENTS[1]="etc/postinstall/ usr/bin/*-config usr/include/ usr/lib/
+                 usr/share/aclocal/ usr/share/info/ usr/share/man/"
+
+DIFF_EXCLUDES="po"
+
+CYGCONF_ARGS="--disable-static"
+
+CYGPORT_USE_UNSTABLE_API=1
+src_unpack_hook() {
+	# remove old libtool.m4
+	sed -i '/libtool.m4/,/AM_PROG_NM/d' acinclude.m4
+}
+
+DOCS="docs/*.txt"
