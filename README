@@ -7,20 +7,20 @@ object-oriented approach.
 
 Runtime requirements:
   cygwin-1.5.25-15
-  glib-1.2.10-4
-  libintl8-0.15-1
-  libX11_6-1.1.3-1
-  libXext6-1.0.3-1
+  libglib1.2_0-1.2.10-5
+  libintl8-0.17-2
+  libX11_6-1.1.5-1
+  libXext6-1.0.4-1
 
 Build requirements:
 (besides corresponding devel packages)
-  autoconf2.5-2.61-1
-  automake1.4-1.4p6-4
-  binutils-20080523-1
-  cygport-0.3.12-1
+  autoconf2.5-2.63-1
+  automake1.4-1.4p6-5
+  binutils-20080624-1
+  cygport-0.4.2-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
-  libtool-2.2.2-2
+  libtool-2.2.6a-1
   make-3.81-1
   sed-4.1.5-2
 
@@ -41,13 +41,14 @@ Build instructions:
 
 This will create:
   /usr/src/gtk+-1.2.10-X.tar.bz2
-  /usr/src/gtk+-1.2.10-X-src.tar.bz2
-  /usr/src/gtk+-devel-1.2.10-X.tar.bz2
+  /usr/src/libgtk1.2_0-1.2.10-X-src.tar.bz2
+  /usr/src/libgtk1.2-devel-1.2.10-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
+Files included in the binary packages:
 
+(libgtk1.2_0)
   /etc/gtk/gtkrc.az
   /etc/gtk/gtkrc.be
   /etc/gtk/gtkrc.bg
@@ -157,8 +158,7 @@ Files included in the binary package:
   /usr/share/locale/zh_TW.Big5/LC_MESSAGES/gtk+.mo
   /usr/share/themes/Default/gtk/gtkrc
 
-(gtk+-devel)
-  /etc/postinstall/gtk+.sh
+(libgtk1.2-devel)
   /usr/bin/gtk-config
   /usr/include/gtk-1.2/gdk/gdk.h
   /usr/include/gtk-1.2/gdk/gdkcursors.h
@@ -280,8 +280,10 @@ Files included in the binary package:
   /usr/include/gtk-1.2/gtk/gtkvseparator.h
   /usr/include/gtk-1.2/gtk/gtkwidget.h
   /usr/include/gtk-1.2/gtk/gtkwindow.h
+  /usr/lib/libgdk.a
   /usr/lib/libgdk.dll.a
   /usr/lib/libgdk.la
+  /usr/lib/libgtk.a
   /usr/lib/libgtk.dll.a
   /usr/lib/libgtk.la
   /usr/lib/pkgconfig/gdk.pc
@@ -300,6 +302,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 1.2.10-4 -----
+Rebuilt.
 
 ----- version 1.2.10-3 -----
 Rebuilt with cygport for updated toolchain and X11R7.

@@ -8,18 +8,18 @@ PATCH_URI="
 	mirror://gentoo/${P}-r8-gentoo.diff.bz2
 	mirror://portage/x11-libs/${PN}/files/${PN}-1.2-locale_fix.patch
 	mirror://portage/x11-libs/${PN}/files/${P}-as-needed.patch
+	1.2.10-linguas.patch
+	1.2.10-no-undefined.patch
+	1.2.10-modules.patch
 "
 
-PKG_NAMES="${PN} ${PN}-devel"
-PKG_HINTS="setup devel"
-PKG_CONTENTS[0]="etc/gtk/ usr/bin/*.dll usr/share/doc/
+PKG_NAMES="${PN} libgtk1.2_0 libgtk1.2-devel"
+libgtk1_2_0_CONTENTS="etc/gtk/ usr/bin/*-1-2-0.dll usr/share/doc/
                  usr/share/locale/ usr/share/themes/"
-PKG_CONTENTS[1]="etc/postinstall/ usr/bin/*-config usr/include/ usr/lib/
+libgtk1_2_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
                  usr/share/aclocal/ usr/share/info/ usr/share/man/"
 
 DIFF_EXCLUDES="po"
-
-CYGCONF_ARGS="--disable-static"
 
 CYGPORT_USE_UNSTABLE_API=1
 src_unpack_hook() {

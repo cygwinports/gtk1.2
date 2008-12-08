@@ -1,0 +1,20 @@
+--- origsrc/gtk+-1.2.10/gdk/Makefile.am	2008-07-04 00:50:15.609375000 -0500
++++ src/gtk+-1.2.10/gdk/Makefile.am	2008-07-04 00:55:27.859375000 -0500
+@@ -20,6 +20,7 @@
+ libgdk_la_LDFLAGS = @STRIP_BEGIN@ \
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+ 	-release $(LT_RELEASE) \
++	-no-undefined \
+ 	-export-dynamic \
+ 	@x_ldflags@	\
+ @STRIP_END@
+--- origsrc/gtk+-1.2.10/gtk/Makefile.am	2008-07-04 00:50:15.625000000 -0500
++++ src/gtk+-1.2.10/gtk/Makefile.am	2008-07-04 00:55:35.984375000 -0500
+@@ -26,6 +26,7 @@
+ libgtk_la_LDFLAGS = @STRIP_BEGIN@ \
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)	\
+ 	-release $(LT_RELEASE) 					\
++	-no-undefined \
+ 	-export-dynamic						\
+ 	@x_ldflags@						\
+ @STRIP_END@
