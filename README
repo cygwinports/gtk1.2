@@ -6,22 +6,23 @@ small, efficient, and flexible. GTK+ is written in C with a very
 object-oriented approach.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  libglib1.2_0-1.2.10-5
-  libintl8-0.17-2
-  libX11_6-1.1.5-1
-  libXext6-1.0.4-1
+  cygwin-1.7.0-44
+  libgcc1-4.3.2-2
+  libglib1.2_0-1.2.10-10
+  libintl8-0.17-10
+  libX11_6-1.2-10
+  libXext6-1.0.5-10
 
 Build requirements:
 (besides corresponding devel packages)
-  autoconf2.5-2.63-1
-  automake1.4-1.4p6-5
-  binutils-20080624-1
-  cygport-0.4.2-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
+  autoconf2.5-2.63-10
+  automake1.4-1.4p6-10
+  binutils-20080624-2
+  cygport-0.9.6-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
   libtool-2.2.6a-1
-  make-3.81-1
+  make-3.81-2
   sed-4.1.5-2
 
 Canonical homepage:
@@ -102,22 +103,12 @@ Files included in the binary packages:
   /etc/gtk/gtkrc.zh_TW.big5
   /usr/bin/cyggdk-1-2-0.dll
   /usr/bin/cyggtk-1-2-0.dll
-  /usr/share/doc/gtk+-1.2.10/ABOUT-NLS
-  /usr/share/doc/gtk+-1.2.10/AUTHORS
-  /usr/share/doc/gtk+-1.2.10/ChangeLog
-  /usr/share/doc/gtk+-1.2.10/Changes-1.2.txt
-  /usr/share/doc/gtk+-1.2.10/COPYING
-  /usr/share/doc/gtk+-1.2.10/debugging.txt
-  /usr/share/doc/gtk+-1.2.10/developers.txt
-  /usr/share/doc/gtk+-1.2.10/generation.txt
-  /usr/share/doc/gtk+-1.2.10/INSTALL
-  /usr/share/doc/gtk+-1.2.10/NEWS
-  /usr/share/doc/gtk+-1.2.10/README
-  /usr/share/doc/gtk+-1.2.10/refcounting.txt
-  /usr/share/doc/gtk+-1.2.10/styles.txt
-  /usr/share/doc/gtk+-1.2.10/text_widget.txt
-  /usr/share/doc/gtk+-1.2.10/TODO
-  /usr/share/doc/gtk+-1.2.10/widget_system.txt
+  /usr/share/doc/gtk+/AUTHORS
+  /usr/share/doc/gtk+/ChangeLog
+  /usr/share/doc/gtk+/COPYING
+  /usr/share/doc/gtk+/NEWS
+  /usr/share/doc/gtk+/README
+  /usr/share/doc/gtk+/TODO
   /usr/share/locale/az/LC_MESSAGES/gtk+.mo
   /usr/share/locale/ca/LC_MESSAGES/gtk+.mo
   /usr/share/locale/cs/LC_MESSAGES/gtk+.mo
@@ -303,19 +294,8 @@ Files included in the binary packages:
 
 Port Notes:
 
------ version 1.2.10-4 -----
-Rebuilt.
-
------ version 1.2.10-3 -----
-Rebuilt with cygport for updated toolchain and X11R7.
-Code patches from Gentoo -r12.
-
------ version 1.2.10-2 -----
-Fixed gtk.m4 for automake-1.8.
-
------ version 1.2.10-1 -----
-Initial release for Cygwin.  Code patches courtesy of the CyGnome 
-project (http://cygnome.sourceforge.net/).
+----- version 1.2.10-10 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:

@@ -26,5 +26,3 @@ src_unpack_hook() {
 	# remove old libtool.m4
 	sed -i '/libtool.m4/,/AM_PROG_NM/d' acinclude.m4
 }
-
-DOCS="docs/*.txt"
