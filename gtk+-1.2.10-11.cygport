@@ -26,3 +26,7 @@ src_unpack_hook() {
 	# remove old libtool.m4
 	sed -i '/libtool.m4/,/AM_PROG_NM/d' acinclude.m4
 }
+
+WANT_AUTOMAKE=1.9
+
+CYGCONF_ARGS="--disable-static"

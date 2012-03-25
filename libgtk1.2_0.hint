@@ -1,5 +1,5 @@
 category: Gnome X11
-requires: libgcc1 libglib1.2_0 libintl8 libX11_6 libXext6
+requires: libglib1.2_0 libintl8 libX11_6 libXext6
 external-source: gtk+
 sdesc: "Gimp Toolkit GUI library (1.2 runtime)"
 ldesc: "GTK+, which stands for the Gimp ToolKit, is a library for 
