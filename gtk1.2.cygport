@@ -1,0 +1,66 @@
+NAME="gtk1.2"
+VERSION=1.2.10
+RELEASE=12
+CATEGORY="Libs"
+SUMMARY="Gimp Toolkit GUI library (version 1.2)"
+DESCRIPTION="GTK+, which stands for the Gimp ToolKit, is a library for
+creating graphical user interfaces for the X Window System. It is
+designed to be small, efficient, and flexible. GTK+ is written in C
+with a very object-oriented approach."
+HOMEPAGE="http://www.gtk.org/"
+SRC_URI="mirror://gnome/sources/gtk+/${VERSION%.*}/gtk+-${VERSION}.tar.gz"
+SRC_DIR="gtk+-${VERSION}"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-ahiguti.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.8-wrap-alnum.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-alignment.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-expose.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-focus.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-encoding.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-ctext.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-utf8fontset.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-kpenter.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-themeswitch.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-pixmapref.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-missingchar.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-ukfont.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-deletedir.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-fontwarning.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-troughpaint.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-localecrash.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-dndorder.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-clistfocusrow.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-bellvolume.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-libtool.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-gtkgdkdep.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-underquoted.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-no_undefined.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-unused-deps.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-autotools.patch
+	1.2.10-modules.patch
+"
+
+PKG_NAMES="libgtk1.2_0 libgtk1.2-devel"
+libgtk1_2_0_CONTENTS="etc/ usr/bin/*-1-2-0.dll usr/share/doc/
+                 usr/share/locale/ usr/share/themes/"
+libgtk1_2_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
+                 usr/share/aclocal/ usr/share/man/"
+
+DIFF_EXCLUDES="po"
+
+src_compile() {
+	gnuconfigize ${S}
+	cd ${B}
+	# originally shipped with automake-1.4, but libtool-2.x requires
+	# automake-1.9+, and infrastructure is not compatible
+	cygconf --with-native-locale --with-xinput=xfree
+	cygmake "LIBTOOL=/usr/bin/libtool --tag=CC --tag=disable-static"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall LIBTOOL=/usr/bin/libtool
+	make_etc_defaults /etc/gtk/
+	# remove docs for obsolete version
+	rm -f ${D}/usr/share/info/*
+}
