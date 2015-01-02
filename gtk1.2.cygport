@@ -1,6 +1,6 @@
 NAME="gtk1.2"
 VERSION=1.2.10
-RELEASE=12
+RELEASE=13
 CATEGORY="Libs"
 SUMMARY="Gimp Toolkit GUI library (version 1.2)"
 DESCRIPTION="GTK+, which stands for the Gimp ToolKit, is a library for
@@ -37,6 +37,7 @@ PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-no_undefined.patch
 	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-unused-deps.patch
 	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-autotools.patch
+	http://pkgs.fedoraproject.org/cgit/gtk+.git/plain/gtk+-1.2.10-format.patch
 	1.2.10-modules.patch
 "
 
